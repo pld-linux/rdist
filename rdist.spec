@@ -1,13 +1,15 @@
 Summary:	Maintains identical copies of files on multiple machines
 Summary(de):	Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
 Summary(fr):	Distributeur de fichiers - maintien des fichiers sur différentes machines
+Summary(pl):	Narzêdzie do zarz±dzania identycznymi kopiami plików na wielu maszynach
 Summary(tr):	Dosyalarý birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
 Release:	15
 License:	BSD
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
 Source1:	%{name}-eu-license.txt
 Patch0:		%{name}-linux.patch
@@ -16,7 +18,7 @@ Patch2:		%{name}-oldpath.patch
 Patch3:		%{name}-hardlink.patch
 Patch4:		%{name}-glibc.patch
 Patch5:		%{name}-ostype.patch
-Patch6:		rdist-environ.patch
+Patch6:		%{name}-environ.patch
 URL:		http://www.MagniComp.com/rdist/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	bison
@@ -38,6 +40,11 @@ identiques sur plusieurs machines. Il conserve le propriétaire, le
 groupe, le mode, et la date des fichiers si possible et peut mettre à
 jour les programmes qu'ils utilisent.
 
+%description -l pl
+Program rdist zarz±dza identycznymi kopiami plików na wielu maszynach.
+Je¿eli to mo¿liwe, zachowuje w³a¶ciciela, grupê, uprawnienia i czas
+modyfikacji plików.
+
 %description -l tr
 rdist ile bir programýn birden fazla kopyasýnýn deðiþik makinalarda
 ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
@@ -53,14 +60,14 @@ ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
 %patch6 -p0
 
 %build
-%{__make} OPT="$RPM_OPT_FLAGS"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,8},%{_sbindir}}
 
-install -s src/rdist $RPM_BUILD_ROOT%{_bindir}
-install -s src/rdistd $RPM_BUILD_ROOT%{_sbindir}
+install src/rdist $RPM_BUILD_ROOT%{_bindir}
+install src/rdistd $RPM_BUILD_ROOT%{_sbindir}
 ln -sf ../sbin/rdistd $RPM_BUILD_ROOT%{_bindir}/rdistd
 
 install doc/rdist.man $RPM_BUILD_ROOT%{_mandir}/man1/rdist.1
@@ -68,7 +75,7 @@ install doc/rdistd.man $RPM_BUILD_ROOT%{_mandir}/man8/rdist.8
 
 install %{SOURCE1} doc/
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* doc/rdist-eu-license.txt README
+gzip -9nf doc/rdist-eu-license.txt README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
