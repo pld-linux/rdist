@@ -1,0 +1,45 @@
+--- rdist-6.1.5/config/config.h.oldpath	Mon Nov  9 22:59:48 1998
++++ rdist-6.1.5/config/config.h	Tue Apr 13 15:09:55 1999
+@@ -39,7 +39,7 @@
+  * don't have the old rdist, then uncomment the "#undef" line.
+  */
+ #ifndef _PATH_OLDRDIST
+-#define _PATH_OLDRDIST	"/usr/ucb/oldrdist"	/* Enable compat */
++#define _PATH_OLDRDIST	"/usr/bin/oldrdist"	/* Enable compat */
+ #endif
+ /*#undef  _PATH_OLDRDIST*/				/* Disable compat */
+ 
+--- rdist-6.1.5/doc/rdist.man.oldpath	Tue Apr 13 15:11:33 1999
++++ rdist-6.1.5/doc/rdist.man	Tue Apr 13 15:13:42 1999
+@@ -170,10 +170,9 @@
+ This option will only work if 
+ .I rdist
+ was compiled with the location of the old rdist
+-(usually either
+-.I /usr/ucb/oldrdist
+-or
+-.I /usr/old/rdist)
++(the path
++.I/usr/bin/oldrdist
++is used on Red Hat linux)
+ and that program is available at run time.
+ .PP
+ .I Rdist
+--- rdist-6.1.5/README.oldpath	Tue Apr 13 15:14:07 1999
++++ rdist-6.1.5/README	Tue Apr 13 15:15:42 1999
+@@ -65,12 +65,12 @@
+ 
+ The way the old rdist started a server rdist is to run "rdist
+ -Server".  If the new rdist is run with the "-Server" option, then it
+-will exec a copy of the old rdist (usually /usr/old/rdist or
+-/usr/ucb/oldrdist).  In this way, you get compatibility with hosts
++will exec a copy of the old rdist (the path /usr/bin/oldrdist in Red
++Hat linux).  In this way, you get compatibility with hosts
+ running the old rdist attempting to rdist to a machine running new
+ rdist.  If your host running new rdist wants to rdist to a host
+ running the old rdist, then it must run the old rdist program
+-(/usr/old/rdist or /usr/ucb/oldrdist).
++(/usr/bin/oldrdist in Red Hat linux).
+ 
+ The definition _PATH_OLDRDIST in "config/config.h" controls the
+ location of the old rdist.  If this is not defined, or the defined
