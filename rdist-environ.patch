@@ -1,0 +1,55 @@
+From: "David J. MacKenzie" <djm@web.us.uu.net>
+Subject: [Notice] rdist environment limit exceeded
+To: bugs@linux-mandrake.com
+Date: Sat, 15 Apr 2000 15:49:01 -0400
+
+Package: rdist
+Version: 6.1.5-10
+
+I hit an arbitrary limit on the environment size in rdist.
+I used "rdist -P rsh" to get whichever rsh comes first in my PATH (the
+krb5 rsh, which is in different directories on different machines I use).
+My environment contains more than 40 variables, and PATH doesn't
+happen to be among the first 40.  Thus, rdist dies with:
+
+djm@dagger 35 $ rdist -P rsh -c /var/tmp/services catapult
+catapult: updating host catapult
+catapult: LOCAL ERROR: Unexpected input from server: "catapult: LOCAL ERROR: execlp rsh failed: No such file or directory.".
+catapult: updating of catapult finished
+
+because the PATH environment variable is not set any longer.
+
+Fix (also sent to the rdist-bugs mailing list):
+
+--- src/setargs.c.old	Mon Nov  9 23:15:56 1998
++++ src/setargs.c	Sat Apr 15 15:30:49 2000
+@@ -58,10 +58,9 @@
+  * Set process argument functions
+  */
+ 
+-#define MAXUSERENVIRON 		40
+ char 			      **Argv = NULL;
+ char 			       *LastArgv = NULL;
+-char 			       *UserEnviron[MAXUSERENVIRON+1];
++char 			      **UserEnviron;
+ 
+ /*
+  * Settup things for using setproctitle()
+@@ -74,9 +73,15 @@
+ 	register int 		i;
+ 	extern char 	      **environ;
+ 
++	/* Count the size of the environment.  */
++	for (i = 0; envp[i] != NULL; i++)
++		;
++	i++;
++	UserEnviron = (char **) xmalloc(i * sizeof(char *));
++
+   	/* Remember the User Environment */
+ 
+-	for (i = 0; i < MAXUSERENVIRON && envp[i] != NULL; i++)
++	for (i = 0; envp[i] != NULL; i++)
+ 		UserEnviron[i] = strdup(envp[i]);
+ 	UserEnviron[i] = NULL;
+ 	environ = UserEnviron;
+
