@@ -19,6 +19,7 @@ Patch5:		%{name}-ostype.patch
 Patch6:		rdist-environ.patch
 URL:		http://www.MagniComp.com/rdist/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	bison
 
 %description
 The rdist program maintains identical copies of files on multiple
