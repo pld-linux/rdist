@@ -1,0 +1,18 @@
+--- rdist-6.1.5/include/defs.h~	Thu Jul 13 15:00:34 2000
++++ rdist-6.1.5/include/defs.h	Thu Jul 13 15:12:09 2000
+@@ -317,15 +317,6 @@
+ #endif /* USE_STATDB */
+ 
+ /*
+- * System function declarations
+- */
+-char 			       *hasmntopt();
+-char			       *strchr();
+-char		 	       *strdup();
+-char		 	       *strrchr();
+-char 			       *strtok();
+-
+-/*
+  * Our own declarations.
+  */
+ char			       *exptilde();
