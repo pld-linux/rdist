@@ -24,7 +24,7 @@ mtime of files and it can update programs that are executing.
 %patch2 -p1 -b .oldpath
 
 %build
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
