@@ -1,25 +1,45 @@
 Summary:	Maintains identical copies of files on multiple machines
+Summary(de):	Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
+Summary(fr):	Distributeur de fichiers - maintien des fichiers sur différentes machines
+Summary(tr):	Dosyalarý birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
-Release:	14
+Release:	15
 License:	BSD
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
-Source1:	rdist-eu-license.txt
-Patch0:		rdist-linux.patch
-Patch1:		rdist-links.patch
-Patch2:		rdist-oldpath.patch
-Patch3:		rdist-hardlink.patch
-Patch4:		rdist-glibc.patch
-Patch5:		rdist-ostype.patch
-URL:		http://www.MagniComp.com/rdist
+Source1:	%{name}-eu-license.txt
+Patch0:		%{name}-linux.patch
+Patch1:		%{name}-links.patch
+Patch2:		%{name}-oldpath.patch
+Patch3:		%{name}-hardlink.patch
+Patch4:		%{name}-glibc.patch
+Patch5:		%{name}-ostype.patch
+Patch6:		rdist-environ.patch
+URL:		http://www.MagniComp.com/rdist/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The rdist program maintains identical copies of files on multiple
 hosts. If possible, rdist will preserve the owner, group, mode and
 mtime of files and it can update programs that are executing.
+
+%description -l de
+Rdist ist ein Programm zur Aufrechterhaltung identischer Kopien von
+Dateien über mehrere Hostrechner. Es behält den Besitzer, die Gruppe,
+den Modus und mtime der Dateien wenn irgend möglich bei, und kann
+Programme, die ausgeführt werden, aktualisieren.
+
+%description -l fr
+Rdist est un programme pour maintenir des copies d'un même fichier
+identiques sur plusieurs machines. Il conserve le propriétaire, le
+groupe, le mode, et la date des fichiers si possible et peut mettre à
+jour les programmes qu'ils utilisent.
+
+%description -l tr
+rdist ile bir programýn birden fazla kopyasýnýn deðiþik makinalarda
+ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
 
 %prep
 %setup -q
@@ -29,6 +49,7 @@ mtime of files and it can update programs that are executing.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p0
 
 %build
 %{__make} OPT="$RPM_OPT_FLAGS"
