@@ -9,6 +9,7 @@ Release:	16
 License:	BSD
 Group:		Applications/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
+# Source0-md5:	546779700af70aa5f9103e08782cdcac
 Source1:	%{name}-eu-license.txt
 Patch0:		%{name}-linux.patch
 Patch1:		%{name}-links.patch
