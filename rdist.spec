@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzie do zarz±dzania identycznymi kopiami plików na wielu maszy
 Summary(tr):	Dosyalarý birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
-Release:	15
+Release:	16
 License:	BSD
 Group:		Applications/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
@@ -73,14 +73,12 @@ install doc/rdistd.man $RPM_BUILD_ROOT%{_mandir}/man8/rdist.8
 
 install %{SOURCE1} doc/
 
-gzip -9nf doc/rdist-eu-license.txt README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz doc/rdist-eu-license.txt.gz
+%doc README doc/rdist-eu-license.txt
 %attr(755,root,root) %{_bindir}/rdist
 %attr(755,root,root) %{_bindir}/rdistd
 %attr(755,root,root) %{_sbindir}/rdistd
