@@ -9,7 +9,7 @@ Patch0: rdist-6.1.5-linux.patch
 Patch1: rdist-6.1.5-links.patch
 Patch2: rdist-6.1.5-oldpath.patch
 URL: http://www.MagniComp.comA/rdist
-BuildRoot: /var/tmp/%{name}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The rdist program maintains identical copies of files on multiple
