@@ -1,0 +1,10 @@
+--- rdist-6.1.5/build/os-type~	Tue Nov 10 04:37:27 1998
++++ rdist-6.1.5/build/os-type	Sun Aug  6 02:41:16 2000
+@@ -83,7 +83,6 @@
+ if [ -z "${OS}" -a ! -z "${uname}" ]; then
+ 	case "`$uname -a | tr '[A-Z]' '[a-z]'`" in
+ 		    osf1*)	OS=break;;
+-		*"4.0"*)	OS=svr4;;	# There has to be a better way
+ 		*" dcosx "*)	OS=dcosx;;
+ 		*"cx/ux"*)	OS=cxux;;
+ 		*"hp-ux"*)	# HP-UX 9.x
