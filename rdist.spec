@@ -18,6 +18,8 @@ Patch3:		%{name}-hardlink.patch
 Patch4:		%{name}-glibc.patch
 Patch5:		%{name}-ostype.patch
 Patch6:		%{name}-environ.patch
+Patch7:		%{name}-bison.patch
+Patch8:		%{name}-varargs.patch
 URL:		http://www.MagniComp.com/rdist/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	bison
@@ -57,6 +59,8 @@ ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p0
+%patch7 -p1
+%patch8 -p1
 
 %build
 %{__make} OPT="%{rpmcflags}" CC="%{__cc}"
