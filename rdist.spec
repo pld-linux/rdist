@@ -58,7 +58,7 @@ ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
 %patch6 -p0
 
 %build
-%{__make} OPT="%{rpmcflags}"
+%{__make} OPT="%{rpmcflags}" CC="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
