@@ -8,8 +8,6 @@ Version:	6.1.5
 Release:	15
 License:	BSD
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
 Source1:	%{name}-eu-license.txt
 Patch0:		%{name}-linux.patch
