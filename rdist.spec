@@ -21,8 +21,8 @@ Patch6:		%{name}-environ.patch
 Patch7:		%{name}-bison.patch
 Patch8:		%{name}-varargs.patch
 URL:		http://www.MagniComp.com/rdist/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	bison
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The rdist program maintains identical copies of files on multiple
@@ -63,7 +63,9 @@ ayný kullanýcý, grup ve kip bilgileri ile saklanmasý saðlanýr.
 %patch8 -p1
 
 %build
-%{__make} OPT="%{rpmcflags}" CC="%{__cc}"
+%{__make} \
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
