@@ -1,8 +1,8 @@
 Summary:	Maintains identical copies of files on multiple machines
-Summary(de.UTF-8):   Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
-Summary(fr.UTF-8):   Distributeur de fichiers - maintien des fichiers sur différentes machines
-Summary(pl.UTF-8):   Narzędzie do zarządzania identycznymi kopiami plików na wielu maszynach
-Summary(tr.UTF-8):   Dosyaları birden fazla makinada saklama sistemi
+Summary(de.UTF-8):	Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
+Summary(fr.UTF-8):	Distributeur de fichiers - maintien des fichiers sur différentes machines
+Summary(pl.UTF-8):	Narzędzie do zarządzania identycznymi kopiami plików na wielu maszynach
+Summary(tr.UTF-8):	Dosyaları birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
 Release:	16
