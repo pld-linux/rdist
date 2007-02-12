@@ -1,8 +1,8 @@
 Summary:	Maintains identical copies of files on multiple machines
-Summary(de):	Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
-Summary(fr):	Distributeur de fichiers - maintien des fichiers sur différentes machines
-Summary(pl):	Narzêdzie do zarz±dzania identycznymi kopiami plików na wielu maszynach
-Summary(tr):	Dosyaları birden fazla makinada saklama sistemi
+Summary(de.UTF-8):   Dateienverteiler - Verwaltung von Dateien auf mehreren Computern
+Summary(fr.UTF-8):   Distributeur de fichiers - maintien des fichiers sur diffÃ©rentes machines
+Summary(pl.UTF-8):   NarzÄ™dzie do zarzÄ…dzania identycznymi kopiami plikÃ³w na wielu maszynach
+Summary(tr.UTF-8):   DosyalarÄ± birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
 Release:	16
@@ -29,26 +29,26 @@ The rdist program maintains identical copies of files on multiple
 hosts. If possible, rdist will preserve the owner, group, mode and
 mtime of files and it can update programs that are executing.
 
-%description -l de
+%description -l de.UTF-8
 Rdist ist ein Programm zur Aufrechterhaltung identischer Kopien von
-Dateien über mehrere Hostrechner. Es behält den Besitzer, die Gruppe,
-den Modus und mtime der Dateien wenn irgend möglich bei, und kann
-Programme, die ausgeführt werden, aktualisieren.
+Dateien Ã¼ber mehrere Hostrechner. Es behÃ¤lt den Besitzer, die Gruppe,
+den Modus und mtime der Dateien wenn irgend mÃ¶glich bei, und kann
+Programme, die ausgefÃ¼hrt werden, aktualisieren.
 
-%description -l fr
-Rdist est un programme pour maintenir des copies d'un même fichier
-identiques sur plusieurs machines. Il conserve le propriétaire, le
-groupe, le mode, et la date des fichiers si possible et peut mettre à
+%description -l fr.UTF-8
+Rdist est un programme pour maintenir des copies d'un mÃªme fichier
+identiques sur plusieurs machines. Il conserve le propriÃ©taire, le
+groupe, le mode, et la date des fichiers si possible et peut mettre Ã 
 jour les programmes qu'ils utilisent.
 
-%description -l pl
-Program rdist zarz±dza identycznymi kopiami plików na wielu maszynach.
-Je¿eli to mo¿liwe, zachowuje w³a¶ciciela, grupê, uprawnienia i czas
-modyfikacji plików.
+%description -l pl.UTF-8
+Program rdist zarzÄ…dza identycznymi kopiami plikÃ³w na wielu maszynach.
+JeÅ¼eli to moÅ¼liwe, zachowuje wÅ‚aÅ›ciciela, grupÄ™, uprawnienia i czas
+modyfikacji plikÃ³w.
 
-%description -l tr
-rdist ile bir programın birden fazla kopyasının değişik makinalarda
-aynı kullanıcı, grup ve kip bilgileri ile saklanması sağlanır.
+%description -l tr.UTF-8
+rdist ile bir programÄ±n birden fazla kopyasÄ±nÄ±n deÄŸiÅŸik makinalarda
+aynÄ± kullanÄ±cÄ±, grup ve kip bilgileri ile saklanmasÄ± saÄŸlanÄ±r.
 
 %prep
 %setup -q
