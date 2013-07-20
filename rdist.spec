@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Narzędzie do zarządzania identycznymi kopiami plików na wi
 Summary(tr.UTF-8):	Dosyaları birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
-Release:	34
+Release:	35
 License:	BSD
 Group:		Applications/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
