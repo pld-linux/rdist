@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Narzędzie do zarządzania identycznymi kopiami plików na wi
 Summary(tr.UTF-8):	Dosyaları birden fazla makinada saklama sistemi
 Name:		rdist
 Version:	6.1.5
-Release:	36
+Release:	37
 License:	BSD
 Group:		Applications/System
 Source0:	http://www.MagniComp.com/download/rdist/%{name}-%{version}.tar.gz
@@ -20,6 +20,8 @@ Patch5:		%{name}-ostype.patch
 Patch6:		%{name}-environ.patch
 Patch7:		%{name}-bison.patch
 Patch8:		%{name}-varargs.patch
+Patch9:		%{name}-parallel.patch
+Patch10:	%{name}-modernize.patch
 URL:		http://www.MagniComp.com/rdist/
 BuildRequires:	bison
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,11 +63,13 @@ aynı kullanıcı, grup ve kip bilgileri ile saklanması sağlanır.
 %patch -P6 -p0
 %patch -P7 -p1
 %patch -P8 -p1
+%patch -P9 -p1
+%patch -P10 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	OPT="%{rpmcflags}"
+	OPT="%{rpmcflags} -std=gnu89 -fcommon"
 
 %install
 rm -rf $RPM_BUILD_ROOT

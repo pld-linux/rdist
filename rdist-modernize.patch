@@ -1,0 +1,36 @@
+--- rdist-6.1.5/include/defs.h	2026-03-09 20:12:17.156356048 +0100
++++ rdist-6.1.5/include/defs.h	2026-03-09 20:13:05.979689373 +0100
+@@ -33,6 +33,11 @@
+ #include <sys/file.h>
+ #include <sys/time.h>
+ #include <sys/stat.h>
++#include <string.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <time.h>
++#define _REGEX_RE_COMP
+ 
+ #include "version.h"
+ #include "config-def.h"
+--- rdist-6.1.5/src/message.c	2026-03-09 20:12:17.149689381 +0100
++++ rdist-6.1.5/src/message.c	2026-03-09 20:13:05.985412215 +0100
+@@ -475,7 +475,7 @@
+ 		(void) sprintf(tempfile, "%s/%s", cp, _RDIST_TMP);
+ 
+ 		msgfac->mf_filename = tempfile;
+-		(void) mktemp(msgfac->mf_filename);
++		int fd = mkstemp(msgfac->mf_filename); if (fd < 0) fatalerr("Cannot open notify file for writing: %s: %s.", msgfac->mf_filename, strerror(errno)); close(fd);
+ 		if ((msgfac->mf_fptr = fopen(msgfac->mf_filename, "w"))==NULL)
+ 			fatalerr("Cannot open notify file for writing: %s: %s.",
+ 			      msgfac->mf_filename, SYSERR);
+--- rdist-6.1.5/src/server.c	2026-03-09 20:12:17.139689381 +0100
++++ rdist-6.1.5/src/server.c	2026-03-09 20:13:05.989185017 +0100
+@@ -1477,7 +1477,7 @@
+ 			(void) sprintf(new, "%s/%s", target, tempname);
+ 			*file = '/';
+ 		}
+-		(void) mktemp(new);
++		int fd = mkstemp(new); if (fd >= 0) { close(fd); unlink(new); } else if (errno != ENOENT) { error("Cannot set file name."); return; }
+ 	}
+ 
+ 	/*

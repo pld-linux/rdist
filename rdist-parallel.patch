@@ -1,0 +1,11 @@
+--- rdist-6.1.5/src/Makefile.real.orig	1998-11-10 04:03:46.000000000 +0100
++++ rdist-6.1.5/src/Makefile.real	2025-03-09 21:00:00.000000000 +0100
+@@ -40,7 +40,7 @@
+ $(CLIENT_BIN): $(CLIENTOBJS) $(COMMONOBJS) $(MISSINGOBJS)
+ 	$(CC) -o $@ $(CLIENTOBJS) $(COMMONOBJS) $(MISSINGOBJS) $(LIBS)
+ 
+-$(CLIENTOBJS) $(SERVEROBJS): $(HFILES) y.tab.h
++$(CLIENTOBJS) $(SERVEROBJS) $(COMMONOBJS): $(HFILES) y.tab.h
+ 
+ y.tab.h: gram.c
+ 
